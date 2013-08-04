@@ -58,6 +58,39 @@ SSH Keys 配置完成后，就可以发布到 github 上去了：
     git push origin master 
 成功发布后，过几分后就可以通过 [http://dhq314.github.io/][15] 访问最原始 Jekyll Bootstrap 页面。
 
+**发布一篇文章**
+
+在发布文章之前，可以先设置一下根目录下的 \_config.yml 文件里的网站配置参数。
+
+用 Jekyll Bootstrap 发布文章很简单，只要把写好的 markdown 文章文件放在根目录下的 \_post 文件夹，然后提交到 github 上就可能发布一遍文章。
+
+PS：文章文件的命令是有格式的，一定要符合 &quot;分类-年-月-日-文章标题.md&quot; 的形式命名，这是由配置文件 \_config.yml 里的参数 permalink 决定，默认的参数值是这样：
+
+
+    permalink: /:categories/:year/:month/:day/:title 
+例如在 \_post 文件夹下创建一个名为 &quot;2013-08-03-just-a-test.md&quot; 的文件（&quot;just-a-test&quot; 是文章的标题），内容如下：
+
+
+    --- 
+    layout: page 
+    title: just a test 
+    --- 
+    \{\% include JB/setup \%\} 
+    
+    \*\*以上是一些通用的格式数据，每个 markdown 文章文件都需要有这几行数据，其标明了文章是放在哪个菜单，文章的标题是上面\*\* 
+
+    ## 以下才是写自己的 markdown 文章内容 
+    
+    \*just a test\* 
+
+可以在本地启动 Jekyll 服务，预览所写 markdown 的页面效果，或是检查文章的内容有没有错误。在根目录下输入以下命令，启动 Jekyll 服务：
+
+
+    jekyll server
+启动完后，就可从打开 http://localhost:4000/，访问本地的 Jekyll Bootstrap。
+
+文章写完后，本地也预览测试没问题了，就 git push 发布到 github 上吧:)
+
   [1]: /
   [2]: /about
   [3]: /erlshell
